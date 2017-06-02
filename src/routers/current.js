@@ -9,7 +9,6 @@ router.use(bodyParser.json());
 
 router.get('/datapoints', function(req, res, next) {
     const {start, end, limit, offset} = req.query;
-    console.log(offset);
     res.send(currentModel.list(start, end, limit, offset));
 });
 
