@@ -1,5 +1,6 @@
 const express = require('express');
 const currentRouter = require('./routers/current');
+
 const app = express();
 
 app.use('/api', currentRouter);
