@@ -1,25 +1,26 @@
 const fs = require('fs');
 const moment = require('moment');
 
-const startDateTime = '2017/01/01 00:00';
-const lowerBound = 8;
-const upperBound = 12;
-const datapoints_per_hour = 12;
-const days = 31;
+const startDateTime = '2016/01/01 00:00';
+const lowerBound = 8000;
+const upperBound = 16000;
+const datapoints_per_hour = 4;
+const days = 365 + 365;
 
 let data = [];
 
 for (let i = 0; i < days * 24 * datapoints_per_hour; i++) {
     let datapoint = {
-        timestamp: null,
+        recordedAt: null,
         values: {
             value: null,
         }
     };
-    datapoint.timestamp = moment(new Date(startDateTime)).add(i * (60 / datapoints_per_hour), 'minutes').unix();
+    datapoint.recordedAt = moment(new Date(startDateTime)).add(i * (60 / datapoints_per_hour), 'minutes').unix() * 1000;
     datapoint.values.value = (lowerBound + Math.round(Math.random() * (upperBound - lowerBound))) / 10;
-    console.log(datapoint.timestamp);
     data.push(datapoint);
 }
 
-fs.writeFileSync('data.json', JSON.stringify(data));
+// fs.writeFileSync('line0_GIoT.json', JSON.stringify(data));
+// fs.writeFileSync('line1_GIoT.json', JSON.stringify(data));
+fs.writeFileSync('line2_GIoT.json', JSON.stringify(data));

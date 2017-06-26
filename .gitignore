@@ -1,2 +1,5 @@
 node_modules/
-data.json
+.DS_Store
+line0_GIoT.json
+line1_GIoT.json
+line2_GIoT.json

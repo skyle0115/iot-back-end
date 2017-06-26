@@ -8,8 +8,8 @@ const router = express.Router();
 router.use(bodyParser.json());
 
 router.get('/datapoints', function(req, res, next) {
-    const {start, end, limit, offset} = req.query;
-    res.send(currentModel.list(start, end, limit, offset));
+    const {dataChnId, start, end, limit, offset} = req.query;
+    res.send(currentModel.list(dataChnId, start, end, limit, offset));
 });
 
 module.exports = router;
